@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Redirect, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
@@ -11,6 +11,7 @@ import NewProjectPage from "./pages/NewProjectPage";
 import AdminPage from "./pages/AdminPage";
 import PostsListPage from "./pages/PostsListPage";
 import ProjectsListPage from "./pages/ProjectsListPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         <Route path="/admin/new-project" component={NewProjectPage} exact />
         <Route path="/admin/posts" component={PostsListPage} exact />
         <Route path="/admin/projects" component={ProjectsListPage} exact />
+        <Route path="/404-page-not-found" component={NotFoundPage} />
+        <Route path="*" component={NotFoundPage} />
+        <Redirect to="/404-page-not-found" />
 
       
       </Switch>

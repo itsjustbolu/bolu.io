@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Footer from "../components/Footer";
+import PageNotFound from "../assets/undraw_page_not_found_su7k.svg";
 
 const MainContainer = styled.div`
   display: flex;
@@ -29,15 +29,15 @@ const PageBlurb = styled.div`
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-wrap: no-wrap;
-  padding: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
   margin: 2em 0;
+  text-align: center;
 `;
 
 const Button = styled.a`
   background-color: orange;
-  margin: 1em;
+  margin-top: 5em;
   padding: 1em;
   font-size: 1em;
   text-decoration: none;
@@ -54,29 +54,25 @@ const Button = styled.a`
   }
 `;
 
-export class AdminPage extends Component {
+export class NotFoundPage extends Component {
   render() {
     return (
-      <div>
-        <MainContainer>
-          <PageTitle>Admin</PageTitle>
-          <PageBlurb>
-            Add new posts and new projects on this page, as well as edit current
-            postings.
-          </PageBlurb>
-          <Content>
-            <Button href="/admin/new-post">Add New Blog Post</Button>
-            <Button href="/admin/new-project">Add New Project</Button>
-          </Content>
-          <Content>
-            <Button href="/admin/posts">View / Edit Posts</Button>
-            <Button href="/admin/projects">View / Edit Projects</Button>
-          </Content>
-        </MainContainer>
-        <Footer />
-      </div>
+      <MainContainer>
+        <PageTitle>Page Not Found</PageTitle>
+        <PageBlurb>Whoops, you've reached a dead end ⛔</PageBlurb>
+        <Button href="/">GO HOME</Button>
+
+        <Content>
+          <img
+            src={PageNotFound}
+            width="300em"
+            height="300em"
+            alt="404 page not found"
+          />
+        </Content>
+      </MainContainer>
     );
   }
 }
 
-export default AdminPage;
+export default NotFoundPage;

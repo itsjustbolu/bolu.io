@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Footer from "../components/Footer";
 import AWSDeveloper from "../assets/certs/AWS-Certified_Developer_Associate.png";
 import AWSArchitect from "../assets/certs/AWS-Certified_Solutions-Architect_Associate.png";
 import AWSSysOps from "../assets/certs/AWS-Certified_Sysops-Administrator_Associate.png";
@@ -50,7 +51,7 @@ export class AboutPage extends Component {
       <MainContainer>
         <PageTitle>About Me</PageTitle>
         <PageBlurb>
-          "The future belongs to those who believe in their dreams."💡
+          "The future belongs to those who believe in their dreams."🔮
         </PageBlurb>
         <Content>
           <p>

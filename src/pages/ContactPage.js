@@ -9,7 +9,7 @@ const MainContainer = styled.div`
   height: 100%;
   background-color: white;
   margin: 0 2em;
-  width: 80%;
+  min-width: 80%;
 `;
 
 const PageTitle = styled.div`
@@ -80,7 +80,7 @@ export class ContactPage extends Component {
       <MainContainer>
         <PageTitle>Contact</PageTitle>
         <PageBlurb>Fill out the form below 📬</PageBlurb>
-       
+
         <Content>
           <ContactForm>
             <ContactInput
