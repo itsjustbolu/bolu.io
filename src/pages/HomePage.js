@@ -78,7 +78,7 @@ export class HomePage extends Component {
     return (
       <MainContainer>
         <Picture src={MainPicture} alt="bolu owolana picture" />
-        <Hello>Hi, I'm Bolu 👋 </Hello>
+        <Hello>Hi, I'm Bolu 👋🏿</Hello>
         <Engineer>Cloud / DevOps Engineer </Engineer>
   
 
