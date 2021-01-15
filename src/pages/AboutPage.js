@@ -61,11 +61,11 @@ export class AboutPage extends Component {
           </p>
 
           <p>
-            I have learned a lot in my short time as a Cloud Engineer, and I
-            continuously develop and challenge myself to constantly absorb
-            relevant emerging technologies. Using programming languages like
-            Python, Javascript and Bash, as well as tools Cloudformation and
-            Terraform enables automation.
+            I have learned a lot as a Cloud Engineer, and I continuously develop
+            and challenge myself to constantly absorb relevant emerging
+            technologies. Using programming languages like Python, Javascript
+            and Bash, as well as tools Cloudformation and Terraform enables
+            automation.
           </p>
 
           <p>
@@ -86,6 +86,15 @@ export class AboutPage extends Component {
             I am <strong>3x AWS Certified</strong>, and my specialties include
             AWS, Automation via IaC, CI/CD, Cloud Computing, Container Services,
             DevOps, Git, Python and Serverless Architecture.{" "}
+          </p>
+
+          <p>
+            If you've got any questions about my journey or simply want to say
+            hi, feel free to{" "}
+            <strong>
+              <a href="/contact">send me a message</a>
+            </strong>
+            .
           </p>
         </Content>
         <Certifications>

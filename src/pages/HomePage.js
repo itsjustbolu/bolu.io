@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import PastelBackground from "../assets/pastel_background_blue_pink.jpg";
 import MainPicture from "../assets/jeff bezos.jpg";
 
 const MainContainer = styled.div`
@@ -26,13 +25,13 @@ const Hello = styled.div`
   margin: 0.5em;
 `;
 
-const Building = styled.div`
-  font-size: 2.5em;
-  // font-family: "Open Sans", sans-serif;
-  font-family: "Noto Sans JP", sans-serif;
-  min-width: 60%;
-  text-align: center;
-`;
+// const Building = styled.div`
+//   font-size: 2.5em;
+//   // font-family: "Open Sans", sans-serif;
+//   font-family: "Noto Sans JP", sans-serif;
+//   min-width: 60%;
+//   text-align: center;
+// `;
 
 const Engineer = styled.div`
   font-size: 2.5em;

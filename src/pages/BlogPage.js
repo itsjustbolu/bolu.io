@@ -2,18 +2,35 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: white;
+  margin: 0 2em;
 `;
 
-const PageTitle = styled.h1`
-  font-size: 3em;
+const PageTitle = styled.div`
+  font-size: 2em;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin: 0.5em;
 `;
 
-const Blurb = styled.h3`
-  margin: 2em;
+const PageBlurb = styled.div`
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  text-align: center;
+  min-width: 70%;
+  font-weight: 600;
 `;
 
-const BlogContainer = styled.div``;
+const BlogContainer = styled.div`
+  margin: 2em 0;
+`;
+
 const BlogCards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -37,7 +54,7 @@ export class BlogPage extends Component {
     return (
       <MainContainer>
         <PageTitle>Blog</PageTitle>
-        <Blurb>Thoughts of a doer</Blurb>
+        <PageBlurb>Musings of an always wandering mind.</PageBlurb>
         <BlogContainer>
           <BlogCards>
             <CardText>
