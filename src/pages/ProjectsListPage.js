@@ -9,6 +9,7 @@ const MainContainer = styled.div`
   height: 100%;
   background-color: white;
   margin: 0 2em;
+  width: 80%;
 `;
 
 const PageTitle = styled.div`
@@ -28,9 +29,8 @@ const PageBlurb = styled.div`
 `;
 
 const Content = styled.div`
-  display: flex;
-  flex-wrap: no-wrap;
-  padding: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
   margin: 2em 0;
 `;
 
@@ -53,26 +53,18 @@ const Button = styled.a`
   }
 `;
 
-export class AdminPage extends Component {
+export class ProjectsListPage extends Component {
   render() {
     return (
       <MainContainer>
-        <PageTitle>Admin</PageTitle>
-        <PageBlurb>
-          Add new posts and new projects on this page, as well as edit current
-          postings.
-        </PageBlurb>
-        <Content>
-          <Button href="/admin/new-post">Add New Blog Post</Button>
-          <Button href="/admin/new-project">Add New Project</Button>
-        </Content>
-        <Content>
-          <Button href="/admin/posts">View / Edit Posts</Button>
-          <Button href="/admin/projects">View / Edit Projects</Button>
-        </Content>
+        <PageTitle>Projects</PageTitle>
+        <PageBlurb>Current List of Projects</PageBlurb>
+        <Button href="/admin/new-project">Add New Project</Button>
+
+        <Content></Content>
       </MainContainer>
     );
   }
 }
 
-export default AdminPage;
+export default ProjectsListPage;

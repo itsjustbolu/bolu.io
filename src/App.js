@@ -9,6 +9,8 @@ import TopNav from "./components/TopNav";
 import NewPostPage from "./pages/NewPostPage";
 import NewProjectPage from "./pages/NewProjectPage";
 import AdminPage from "./pages/AdminPage";
+import PostsListPage from "./pages/PostsListPage";
+import ProjectsListPage from "./pages/ProjectsListPage";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
         <Route path="/admin" component={AdminPage} exact />
         <Route path="/admin/new-post" component={NewPostPage} exact />
         <Route path="/admin/new-project" component={NewProjectPage} exact />
+        <Route path="/admin/posts" component={PostsListPage} exact />
+        <Route path="/admin/projects" component={ProjectsListPage} exact />
+
+      
       </Switch>
     </Router>
   );

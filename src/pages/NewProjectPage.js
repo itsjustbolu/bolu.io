@@ -2,52 +2,141 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
-  width: 1100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: white;
+  margin: 0 2em;
 `;
 
-const Title = styled.div`
+const PageTitle = styled.div`
   font-size: 2em;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin: 0.5em;
 `;
 
-const FormContainer = styled.form`
-  margin: 2em;
+const PageBlurb = styled.div`
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  text-align: center;
+  min-width: 70%;
+  font-weight: 600;
 `;
 
-const SubmitButton = styled.button`
-  background-color: red;
+const Content = styled.div`
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  margin: 2em 0;
+`;
+
+const BlogForm = styled.form`
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+`;
+
+const BlogInput = styled.input`
+  border: none;
+  border-bottom: 2px solid gray;
+  border-left: 2px solid gray;
   padding: 0.5em;
+  margin-bottom: 1.3em;
+  font-size: 1em;
+`;
+
+const BlogTextarea = styled.textarea`
+  padding: 0.5em;
+  border: none;
+  border-bottom: 2px solid gray;
+  font-size: 1em;
+  border-left: 2px solid gray;
+  margin-bottom: 1.3em;
+`;
+const Button = styled.a`
+  background-color: orange;
+  margin: 1em;
+  padding: 1em;
+  font-size: 1em;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Noto Sans JP", sans-serif;
+
+  &:hover {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
 `;
 
 export class NewProjectPage extends Component {
   render() {
     return (
       <MainContainer>
-        <Title>Add New Post</Title>
-        <FormContainer>
-          <div>
-            <label for="title">Title: </label>
-            <input type="text" id="title" name="title" />
-            <br />
-            <label>Slug: </label>
-            <input type="text" name="slug" />
-            <br />
-            <label>Date: </label>
-            <input type="date" name="date" />
-            <br />
-            <label>Time: </label>
-            <input type="text" name="time" />
-            <br />
-            <label>Category: </label>
-            <input type="text" name="category" />
-            <br />
-            <label>Content: </label>
-            <textarea type="textarea" name="content" rows="10" columns="100" />
-            <br />
-          </div>
-          <div>
-            <SubmitButton>SUBMIT POST</SubmitButton>
-          </div>
-        </FormContainer>
+        <PageTitle>Add New Project</PageTitle>
+        <PageBlurb>Enter new project data below</PageBlurb>
+        <Content>
+          <BlogForm>
+            <BlogInput
+              type="text"
+              name="project_title"
+              placeholder="Enter title for project"
+              required
+              autofocus
+            />
+
+            <BlogInput
+              type="text"
+              name="project_category"
+              placeholder="Enter category"
+              required
+            />
+
+            <BlogTextarea
+              type="textarea"
+              name="blog_snippet"
+              placeholder="Summary"
+              rows="3"
+              cols="25"
+              required
+            />
+
+            <BlogInput
+              type="url"
+              name="project_demo_link"
+              placeholder="Enter link for working demo"
+              required
+            />
+
+            <BlogInput
+              type="url"
+              name="project_github_link"
+              placeholder="Enter github repo link"
+              required
+            />
+
+            <BlogInput
+              type="url"
+              name="project_blogpost_link"
+              placeholder="Enter blog post link"
+              required
+            />
+
+            <BlogInput
+              type="url"
+              name="project_aws_link"
+              placeholder="Enter aws link"
+            />
+          </BlogForm>
+        </Content>
+
+        <Button href="">Submit</Button>
       </MainContainer>
     );
   }

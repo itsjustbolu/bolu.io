@@ -80,12 +80,7 @@ export class ContactPage extends Component {
       <MainContainer>
         <PageTitle>Contact</PageTitle>
         <PageBlurb>Fill out the form below 📬</PageBlurb>
-        <PageBlurb
-          style={{
-            fontSize: "0.7em",
-            padding: "1em",
-          }}
-        ></PageBlurb>
+       
         <Content>
           <ContactForm>
             <ContactInput
