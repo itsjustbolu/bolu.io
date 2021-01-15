@@ -6,8 +6,9 @@ import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import TopNav from "./components/TopNav";
-import BlogNewPost from "./pages/BlogNewPost";
-import BlogAdminPage from "./pages/BlogAdminPage";
+import NewPostPage from "./pages/NewPostPage";
+import NewProjectPage from "./pages/NewProjectPage";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
         <Route path="/" component={HomePage} exact />
         <Route path="/about" component={AboutPage} exact />
         <Route path="/blog" component={BlogPage} exact />
-        <Route path="/blog/admin" component={BlogAdminPage} exact />
-        <Route path="/blog/new-post" component={BlogNewPost} exact />
         <Route path="/contact" component={ContactPage} exact />
         <Route path="/projects" component={ProjectsPage} exact />
+        <Route path="/admin" component={AdminPage} exact />
+        <Route path="/admin/new-post" component={NewPostPage} exact />
+        <Route path="/admin/new-project" component={NewProjectPage} exact />
       </Switch>
     </Router>
   );

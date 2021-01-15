@@ -5,13 +5,16 @@ const MainContainer = styled.div`
   width: 1100vw;
 `;
 
-export class BlogAdminPage extends Component {
+export class AdminPage extends Component {
   render() {
     return (
       <MainContainer>
-        <div>Blog Admin</div>
+        <div>Admin</div>
         <button>
-          <a href="/blog/new-post">ADD NEW POST</a>{" "}
+          <a href="/admin/new-post">ADD NEW POST</a>{" "}
+        </button>
+        <button>
+          <a href="/admin/new-project">ADD NEW PROJECT</a>{" "}
         </button>
         <form></form>
       </MainContainer>
@@ -19,4 +22,4 @@ export class BlogAdminPage extends Component {
   }
 }
 
-export default BlogAdminPage;
+export default AdminPage;

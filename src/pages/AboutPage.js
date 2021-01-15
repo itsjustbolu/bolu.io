@@ -50,7 +50,7 @@ export class AboutPage extends Component {
       <MainContainer>
         <PageTitle>About Me</PageTitle>
         <PageBlurb>
-          "The future belongs to those who believe in their dreams."
+          "The future belongs to those who believe in their dreams."💡
         </PageBlurb>
         <Content>
           <p>
@@ -71,12 +71,16 @@ export class AboutPage extends Component {
           <p>
             I write a{" "}
             <strong>
-              <a href="/blog">blog</a>
+              <a href="/blog" style={{ color: "orange" }}>
+                blog
+              </a>
             </strong>{" "}
             sharing some of my learnings and tips as an Engineer, and tend to
             build pet{" "}
             <strong>
-              <a href="/projects">projects</a>
+              <a href="/projects" style={{ color: "orange" }}>
+                projects
+              </a>
             </strong>{" "}
             in my spare time to keep my programming and software engineering
             skills sharp.
@@ -92,7 +96,9 @@ export class AboutPage extends Component {
             If you've got any questions about my journey or simply want to say
             hi, feel free to{" "}
             <strong>
-              <a href="/contact">send me a message</a>
+              <a href="/contact" style={{ color: "orange" }}>
+                send me a message
+              </a>
             </strong>
             .
           </p>

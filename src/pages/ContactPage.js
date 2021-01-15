@@ -9,6 +9,7 @@ const MainContainer = styled.div`
   height: 100%;
   background-color: white;
   margin: 0 2em;
+  width: 80%;
 `;
 
 const PageTitle = styled.div`
@@ -34,7 +35,7 @@ const Content = styled.div`
 `;
 
 const ContactForm = styled.form`
-  max-width: 60vw;
+  width: 70vw;
   display: flex;
   flex-direction: column;
 `;
@@ -42,7 +43,6 @@ const ContactForm = styled.form`
 const ContactInput = styled.input`
   border: none;
   border-bottom: 2px solid gray;
-  width: 300px;
   padding: 0.5em;
   margin-bottom: 1.3em;
   font-size: 1em;
@@ -56,7 +56,7 @@ const ContactTextarea = styled.textarea`
 `;
 
 const Button = styled.a`
-  background-color: #d1efed;
+  background-color: orange;
   margin: 1em;
   padding: 1em;
   font-size: 1em;
@@ -79,7 +79,13 @@ export class ContactPage extends Component {
     return (
       <MainContainer>
         <PageTitle>Contact</PageTitle>
-        <PageBlurb>Fill in the form or email me at hi@bolu.io</PageBlurb>
+        <PageBlurb>Fill out the form below 📬</PageBlurb>
+        <PageBlurb
+          style={{
+            fontSize: "0.7em",
+            padding: "1em",
+          }}
+        ></PageBlurb>
         <Content>
           <ContactForm>
             <ContactInput
@@ -101,9 +107,8 @@ export class ContactPage extends Component {
               type="textarea"
               name="sender_message"
               placeholder="Message"
-              rows="50"
-              cols="50"
-              onInput="auto_grow"
+              rows="7"
+              cols="25"
               required
             />
           </ContactForm>

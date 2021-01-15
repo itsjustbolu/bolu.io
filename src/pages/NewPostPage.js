@@ -18,7 +18,7 @@ const SubmitButton = styled.button`
   padding: 0.5em;
 `;
 
-export class BlogNewPost extends Component {
+export class NewPostPage extends Component {
   render() {
     return (
       <MainContainer>
@@ -53,4 +53,4 @@ export class BlogNewPost extends Component {
   }
 }
 
-export default BlogNewPost;
+export default NewPostPage;

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import MainPicture from "../assets/jeff bezos.jpg";
+import Footer from "../components/Footer";
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  // height: 75vh;
+  min-height: 100%;
   background-color: white;
-  margin: 2em;
+  margin: auto;
 `;
 
 const Picture = styled.img`
@@ -54,7 +56,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled.a`
-  background-color: #d1efed;
+  background-color: orange;
   margin: 1em;
   padding: 1em;
   font-size: 1em;
@@ -75,23 +77,34 @@ const Button = styled.a`
 export class HomePage extends Component {
   render() {
     return (
-      <MainContainer>
-        <Picture src={MainPicture} alt="bolu owolana picture" />
-        <Hello>Hi, I'm Bolu 👋🏿</Hello>
-        <Engineer>Cloud / DevOps Engineer </Engineer>
-  
+      <div>
+        <MainContainer>
+          <Picture src={MainPicture} alt="bolu owolana picture" />
+          <Hello>Hi, I'm Bolu 👋🏿</Hello>
+          <Engineer>Cloud / DevOps Engineer </Engineer>
 
-        <Specialty>
-          I specialize building, deploying, and maintaining readily-available
-          and fault-tolerant cloud infrastructure using automation (IaC)
-          combined with CI/CD.
-        </Specialty>
+          <Specialty>
+            I specialize building, deploying, and maintaining readily-available
+            and fault-tolerant cloud infrastructure using automation (IaC)
+            combined with CI/CD.
+          </Specialty>
 
-        <ButtonContainer>
-          <Button href="/blog">Blog</Button>
-          <Button href="/projects">Projects</Button>
-        </ButtonContainer>
-      </MainContainer>
+          <ButtonContainer>
+            <Button href="/blog">Blog</Button>
+            <Button href="/projects">Projects</Button>
+          </ButtonContainer>
+        </MainContainer>
+        <Footer
+          style={{
+            position: "absolute",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            width: "100%",
+            height: "100px",
+          }}
+        />
+      </div>
     );
   }
 }
