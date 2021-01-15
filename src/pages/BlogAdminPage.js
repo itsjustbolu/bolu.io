@@ -9,7 +9,7 @@ export class BlogAdminPage extends Component {
   render() {
     return (
       <MainContainer>
-        <div>Blog Admin Add Posts</div>
+        <div>Blog Admin</div>
         <button>
           <a href="/blog/new-post">ADD NEW POST</a>{" "}
         </button>
