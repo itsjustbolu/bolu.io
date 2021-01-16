@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+
+import { API, graphqlOperation } from "aws-amplify";
+import { listBlogs, listProjects } from "../graphql/queries";
+
+Amplify.configure(config);
 
 const MainContainer = styled.div`
   display: flex;
@@ -75,26 +82,38 @@ const CardBlurb = styled.div`
 `;
 
 export class ProjectsPage extends Component {
+  state = { projects: [] };
+  async componentDidMount() {
+    try {
+      const apiData = await API.graphql(graphqlOperation(listProjects));
+      const projects = apiData.data.listProjects.items;
+      this.setState({ projects });
+    } catch (err) {
+      console.log("error: ", err);
+    }
+  }
+
   render() {
     return (
       <MainContainer>
         <PageTitle>Projects</PageTitle>
         <PageBlurb>Fun stuff I've worked on 🚧</PageBlurb>
-        <ProjectsCards>
-          <CardTitle>Portfolio Site</CardTitle>
-          <CardBlurb>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s. Lorem Ipsum has been the industry's standard
-            dummy text ever since the 1500s.
-          </CardBlurb>
-          <CardLinks>
-            <Link href="/">Demo</Link>
-            <Link href="/">Github</Link>
-            <Link href="/">Blog</Link>
-            <Link href="/">AWS</Link>
-          </CardLinks>
-        </ProjectsCards>
+
+        {this.state.projects.map((proj, i) => (
+          <ProjectsCards>
+            <CardTitle>{proj.title}</CardTitle>
+            <CardBlurb>
+              {proj.summary}
+              {proj.category}
+            </CardBlurb>
+            <CardLinks>
+              <Link href={proj.demo_link}>Demo</Link>
+              <Link href={proj.github_link}>Github</Link>
+              <Link href={proj.blog_post_link}>Blog</Link>
+              <Link href={proj.aws_link}>AWS</Link>
+            </CardLinks>
+          </ProjectsCards>
+        ))}
       </MainContainer>
     );
   }

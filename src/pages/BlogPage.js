@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+
+import { API, graphqlOperation } from "aws-amplify";
+import { listBlogs } from "../graphql/queries";
+
+Amplify.configure(config);
 
 const MainContainer = styled.div`
   display: flex;
@@ -27,17 +34,21 @@ const PageBlurb = styled.div`
   font-weight: 600;
 `;
 
+const CardContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const BlogCards = styled.div`
   display: flex;
-  flex-wrap: no-wrap;
   padding: 1em;
-  max-width: 25em;
+  min-width: 20em;
   border: 1px solid black;
   border-radius: 5px;
   margin: 2em 0;
 `;
 const CardText = styled.div`
-  display: grid;
+  // display: grid;
   width: 70%;
 `;
 
@@ -66,23 +77,35 @@ const CardPic = styled.div`
 `;
 
 export class BlogPage extends Component {
+  state = { blogs: [] };
+  async componentDidMount() {
+    try {
+      const apiData = await API.graphql(graphqlOperation(listBlogs));
+      const blogs = apiData.data.listBlogs.items;
+      this.setState({ blogs });
+    } catch (err) {
+      console.log("error: ", err);
+    }
+  }
+
   render() {
     return (
       <MainContainer>
         <PageTitle>Blog</PageTitle>
         <PageBlurb>Just sharing some knowledge 📝</PageBlurb>
-        <BlogCards>
-          <CardText>
-            <CardTitle>AWS Authentication with React</CardTitle>
-            <CardDate>January 1, 2020</CardDate>
-            <CardBlurb>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
-            </CardBlurb>
-          </CardText>
-          <CardPic>photo</CardPic>
-        </BlogCards>
+
+        {this.state.blogs.map((post, i) => (
+          <CardContainer>
+            <BlogCards>
+              <CardText>
+                <CardTitle>{post.title}</CardTitle>
+                <CardDate>{post.createdAt}</CardDate>
+                <CardBlurb>{post.summary}</CardBlurb>
+              </CardText>
+              <CardPic>photo</CardPic>
+            </BlogCards>
+          </CardContainer>
+        ))}
       </MainContainer>
     );
   }

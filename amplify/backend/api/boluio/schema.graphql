@@ -1,0 +1,21 @@
+type Blog @model {
+  id: ID!
+  title: String!
+  slug: String!
+  date: Int!
+  category: String!
+  reading_time: Int!
+  summary: String!
+  content: String!
+}
+
+type Project @model {
+  id: ID!
+  title: String!
+  category: String!
+  summary: String!
+  demo_link: String!
+  github_link: String!
+  blog_post_link: String!
+  aws_link: String!
+}

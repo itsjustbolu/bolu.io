@@ -6,9 +6,16 @@ import Amplify from "aws-amplify";
 import config from "../aws-exports";
 import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
+// Add GraphQL components
+import { API, graphqlOperation } from "aws-amplify";
+import { createBlog } from "../graphql/mutations";
+import { listBlog } from "../graphql/queries";
+import { onCreateBlog } from "../graphql/subscriptions";
+
 // Configure Amplify
 Amplify.configure(config);
 
+// Style Components
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -82,6 +89,25 @@ const Button = styled.a`
     text-decoration: none;
   }
 `;
+
+// GraphQL
+
+// type Blog = {
+//   title: String,
+//   slug: String,
+//   date: Int,
+//   category: String,
+//   reading_time: Int,
+//   summary: String,
+//   content: String,
+// };
+
+// type AppState = {
+//   blogs: Blog[];
+//   formData: Blog;
+// }
+
+// type Action = 
 
 export class NewPostPage extends Component {
   render() {
