@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// Adding AWS Amplify Authentication
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
+// Configure Amplify
+Amplify.configure(config);
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -78,64 +86,67 @@ const Button = styled.a`
 export class NewPostPage extends Component {
   render() {
     return (
-      <MainContainer>
-        <PageTitle>Add New Post</PageTitle>
-        <PageBlurb>Enter new blog post data below</PageBlurb>
-        <Content>
-          <BlogForm>
-            <BlogInput
-              type="text"
-              name="blog_title"
-              placeholder="Enter title for blog post"
-              required
-              autofocus
-            />
+      <AmplifyAuthenticator>
+        <AmplifySignOut />
+        <MainContainer>
+          <PageTitle>Add New Post</PageTitle>
+          <PageBlurb>Enter new blog post data below</PageBlurb>
+          <Content>
+            <BlogForm>
+              <BlogInput
+                type="text"
+                name="blog_title"
+                placeholder="Enter title for blog post"
+                required
+                autofocus
+              />
 
-            <BlogInput
-              type="text"
-              name="blog_slug"
-              placeholder="Enter slug"
-              required
-            />
+              <BlogInput
+                type="text"
+                name="blog_slug"
+                placeholder="Enter slug"
+                required
+              />
 
-            <BlogInput type="date" name="blog_date" required />
+              <BlogInput type="date" name="blog_date" required />
 
-            <BlogInput
-              type="text"
-              name="blog_category"
-              placeholder="Enter category"
-              required
-            />
+              <BlogInput
+                type="text"
+                name="blog_category"
+                placeholder="Enter category"
+                required
+              />
 
-            <BlogInput
-              type="number"
-              name="blog_reading time"
-              placeholder="Enter reading time"
-              required
-            />
+              <BlogInput
+                type="number"
+                name="blog_reading time"
+                placeholder="Enter reading time"
+                required
+              />
 
-            <BlogTextarea
-              type="textarea"
-              name="blog_snippet"
-              placeholder="Summary"
-              rows="3"
-              cols="25"
-              required
-            />
+              <BlogTextarea
+                type="textarea"
+                name="blog_snippet"
+                placeholder="Summary"
+                rows="3"
+                cols="25"
+                required
+              />
 
-            <BlogTextarea
-              type="textarea"
-              name="blog_content"
-              placeholder="Content"
-              rows="20"
-              cols="25"
-              required
-            />
-          </BlogForm>
-        </Content>
+              <BlogTextarea
+                type="textarea"
+                name="blog_content"
+                placeholder="Content"
+                rows="20"
+                cols="25"
+                required
+              />
+            </BlogForm>
+          </Content>
 
-        <Button href="">Submit</Button>
-      </MainContainer>
+          <Button href="">Submit</Button>
+        </MainContainer>
+      </AmplifyAuthenticator>
     );
   }
 }

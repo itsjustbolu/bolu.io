@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// Adding AWS Amplify Authentication
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
+// Configure Amplify
+Amplify.configure(config);
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -56,13 +64,16 @@ const Button = styled.a`
 export class ProjectsListPage extends Component {
   render() {
     return (
-      <MainContainer>
-        <PageTitle>Projects</PageTitle>
-        <PageBlurb>Current List of Projects</PageBlurb>
-        <Button href="/admin/new-project">Add New Project</Button>
+      <AmplifyAuthenticator>
+        <AmplifySignOut />
+        <MainContainer>
+          <PageTitle>Projects</PageTitle>
+          <PageBlurb>Current List of Projects</PageBlurb>
+          <Button href="/admin/new-project">Add New Project</Button>
 
-        <Content></Content>
-      </MainContainer>
+          <Content></Content>
+        </MainContainer>
+      </AmplifyAuthenticator>
     );
   }
 }

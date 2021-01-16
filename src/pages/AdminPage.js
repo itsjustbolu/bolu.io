@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 
+// Adding AWS Amplify Authentication
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
+// Configure Amplify
+Amplify.configure(config);
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -57,24 +65,27 @@ const Button = styled.a`
 export class AdminPage extends Component {
   render() {
     return (
-      <div>
-        <MainContainer>
-          <PageTitle>Admin</PageTitle>
-          <PageBlurb>
-            Add new posts and new projects on this page, as well as edit current
-            postings.
-          </PageBlurb>
-          <Content>
-            <Button href="/admin/new-post">Add New Blog Post</Button>
-            <Button href="/admin/new-project">Add New Project</Button>
-          </Content>
-          <Content>
-            <Button href="/admin/posts">View / Edit Posts</Button>
-            <Button href="/admin/projects">View / Edit Projects</Button>
-          </Content>
-        </MainContainer>
-        <Footer />
-      </div>
+      <AmplifyAuthenticator>
+        <div>
+          <AmplifySignOut />
+          <MainContainer>
+            <PageTitle>Admin</PageTitle>
+            <PageBlurb>
+              Add new posts and new projects on this page, as well as edit
+              current postings.
+            </PageBlurb>
+            <Content>
+              <Button href="/admin/new-post">Add New Blog Post</Button>
+              <Button href="/admin/new-project">Add New Project</Button>
+            </Content>
+            <Content>
+              <Button href="/admin/posts">View / Edit Posts</Button>
+              <Button href="/admin/projects">View / Edit Projects</Button>
+            </Content>
+          </MainContainer>
+          <Footer />
+        </div>
+      </AmplifyAuthenticator>
     );
   }
 }

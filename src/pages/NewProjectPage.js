@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// Adding AWS Amplify Authentication
+import Amplify from "aws-amplify";
+import config from "../aws-exports";
+import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+
+// Configure Amplify
+Amplify.configure(config);
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -78,66 +86,69 @@ const Button = styled.a`
 export class NewProjectPage extends Component {
   render() {
     return (
-      <MainContainer>
-        <PageTitle>Add New Project</PageTitle>
-        <PageBlurb>Enter new project data below</PageBlurb>
-        <Content>
-          <BlogForm>
-            <BlogInput
-              type="text"
-              name="project_title"
-              placeholder="Enter title for project"
-              required
-              autofocus
-            />
+      <AmplifyAuthenticator>
+        <AmplifySignOut />
+        <MainContainer>
+          <PageTitle>Add New Project</PageTitle>
+          <PageBlurb>Enter new project data below</PageBlurb>
+          <Content>
+            <BlogForm>
+              <BlogInput
+                type="text"
+                name="project_title"
+                placeholder="Enter title for project"
+                required
+                autofocus
+              />
 
-            <BlogInput
-              type="text"
-              name="project_category"
-              placeholder="Enter category"
-              required
-            />
+              <BlogInput
+                type="text"
+                name="project_category"
+                placeholder="Enter category"
+                required
+              />
 
-            <BlogTextarea
-              type="textarea"
-              name="blog_snippet"
-              placeholder="Summary"
-              rows="3"
-              cols="25"
-              required
-            />
+              <BlogTextarea
+                type="textarea"
+                name="blog_snippet"
+                placeholder="Summary"
+                rows="3"
+                cols="25"
+                required
+              />
 
-            <BlogInput
-              type="url"
-              name="project_demo_link"
-              placeholder="Enter link for working demo"
-              required
-            />
+              <BlogInput
+                type="url"
+                name="project_demo_link"
+                placeholder="Enter link for working demo"
+                required
+              />
 
-            <BlogInput
-              type="url"
-              name="project_github_link"
-              placeholder="Enter github repo link"
-              required
-            />
+              <BlogInput
+                type="url"
+                name="project_github_link"
+                placeholder="Enter github repo link"
+                required
+              />
 
-            <BlogInput
-              type="url"
-              name="project_blogpost_link"
-              placeholder="Enter blog post link"
-              required
-            />
+              <BlogInput
+                type="url"
+                name="project_blog_post_link"
+                placeholder="Enter blog post link"
+                required
+              />
 
-            <BlogInput
-              type="url"
-              name="project_aws_link"
-              placeholder="Enter aws link"
-            />
-          </BlogForm>
-        </Content>
+              <BlogInput
+                type="url"
+                name="project_aws_link"
+                placeholder="Enter aws link"
+              />
+            </BlogForm>
+          </Content>
 
-        <Button href="">Submit</Button>
-      </MainContainer>
+          <Button href="">Submit</Button>
+        </MainContainer>
+      </AmplifyAuthenticator>
     );
   }
 }

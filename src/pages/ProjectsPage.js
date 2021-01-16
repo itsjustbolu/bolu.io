@@ -36,10 +36,6 @@ const ProjectsCards = styled.div`
   border-radius: 5px;
   margin: 2em 0;
 `;
-const CardText = styled.div`
-  display: grid;
-  width: 70%;
-`;
 
 const CardTitle = styled.div`
   font-size: 1.5em;
