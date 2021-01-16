@@ -71,10 +71,10 @@ const CardBlurb = styled.div`
   font-size: 0.7em;
 `;
 
-const CardPic = styled.div`
-  margin: 3em;
-  width: 30%;
-`;
+// const CardPic = styled.div`
+//   margin: 3em;
+//   width: 30%;
+// `;
 
 export class BlogPage extends Component {
   state = { blogs: [] };

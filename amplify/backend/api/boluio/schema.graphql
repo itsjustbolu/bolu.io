@@ -3,7 +3,6 @@ type Blog @model {
   title: String!
   slug: String!
   date: Int
-  image: String!
   category: String!
   reading_time: Int!
   summary: String!
@@ -14,7 +13,6 @@ type Project @model {
   id: ID!
   title: String!
   category: String!
-  image: String
   summary: String!
   demo_link: String!
   github_link: String!
