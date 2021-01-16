@@ -24,5 +24,11 @@
         }
       }
     }
+  },
+  "storage": {
+    "boluioprojectspostsimages": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }

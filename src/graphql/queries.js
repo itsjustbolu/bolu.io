@@ -8,6 +8,7 @@ export const getBlog = /* GraphQL */ `
       title
       slug
       date
+      image
       category
       reading_time
       summary
@@ -29,6 +30,7 @@ export const listBlogs = /* GraphQL */ `
         title
         slug
         date
+        image
         category
         reading_time
         summary
@@ -46,6 +48,7 @@ export const getProject = /* GraphQL */ `
       id
       title
       category
+      image
       summary
       demo_link
       github_link
@@ -67,6 +70,7 @@ export const listProjects = /* GraphQL */ `
         id
         title
         category
+        image
         summary
         demo_link
         github_link

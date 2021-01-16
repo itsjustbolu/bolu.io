@@ -11,6 +11,7 @@ export const createBlog = /* GraphQL */ `
       title
       slug
       date
+      image
       category
       reading_time
       summary
@@ -30,6 +31,7 @@ export const updateBlog = /* GraphQL */ `
       title
       slug
       date
+      image
       category
       reading_time
       summary
@@ -49,6 +51,7 @@ export const deleteBlog = /* GraphQL */ `
       title
       slug
       date
+      image
       category
       reading_time
       summary
@@ -67,6 +70,7 @@ export const createProject = /* GraphQL */ `
       id
       title
       category
+      image
       summary
       demo_link
       github_link
@@ -86,6 +90,7 @@ export const updateProject = /* GraphQL */ `
       id
       title
       category
+      image
       summary
       demo_link
       github_link
@@ -105,6 +110,7 @@ export const deleteProject = /* GraphQL */ `
       id
       title
       category
+      image
       summary
       demo_link
       github_link

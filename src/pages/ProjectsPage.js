@@ -4,7 +4,7 @@ import Amplify from "aws-amplify";
 import config from "../aws-exports";
 
 import { API, graphqlOperation } from "aws-amplify";
-import { listBlogs, listProjects } from "../graphql/queries";
+import { listProjects } from "../graphql/queries";
 
 Amplify.configure(config);
 

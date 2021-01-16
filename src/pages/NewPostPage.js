@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+
+
 // Adding AWS Amplify Authentication
 import Amplify from "aws-amplify";
 import config from "../aws-exports";
@@ -9,8 +11,6 @@ import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 // Add GraphQL components
 import { API, graphqlOperation } from "aws-amplify";
 import { createBlog } from "../graphql/mutations";
-import { listBlog } from "../graphql/queries";
-import { onCreateBlog } from "../graphql/subscriptions";
 
 // Configure Amplify
 Amplify.configure(config);
@@ -90,26 +90,63 @@ const Button = styled.a`
   }
 `;
 
-// GraphQL
-
-// type Blog = {
-//   title: String,
-//   slug: String,
-//   date: Int,
-//   category: String,
-//   reading_time: Int,
-//   summary: String,
-//   content: String,
-// };
-
-// type AppState = {
-//   blogs: Blog[];
-//   formData: Blog;
-// }
-
-// type Action = 
-
 export class NewPostPage extends Component {
+  state = {
+    title: "",
+    slug: "",
+    date: "",
+    category: "",
+    reading_time: "",
+    summary: "",
+    content: "",
+    blogs: [],
+  };
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  
+
+  createBlog = async () => {
+    const {
+      title,
+      slug,
+      date,
+      category,
+      reading_time,
+      summary,
+      content,
+    } = this.state;
+    if (title === "") return;
+    try {
+      const blog = {
+        title,
+        slug,
+        date,
+        category,
+        reading_time,
+        summary,
+        content,
+      };
+      const blogs = [...this.state.blogs, blog];
+      this.setState({
+        blogs,
+        title: "",
+        slug: "",
+        date: "",
+        category: "",
+        reading_time: "",
+        summary: "",
+        content: "",
+      });
+      await API.graphql(graphqlOperation(createBlog, { input: blog }));
+      console.log("blog post created successfully");
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
   render() {
     return (
       <AmplifyAuthenticator>
@@ -120,39 +157,62 @@ export class NewPostPage extends Component {
           <Content>
             <BlogForm>
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.title}
                 type="text"
-                name="blog_title"
+                name="title"
                 placeholder="Enter title for blog post"
                 required
-                autofocus
+                autoFocus
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.slug}
                 type="text"
-                name="blog_slug"
+                name="slug"
                 placeholder="Enter slug"
                 required
               />
 
-              <BlogInput type="date" name="blog_date" required />
+              <BlogInput
+                onChange={this.onChange}
+                value={this.state.date}
+                type="number"
+                name="date"
+                required
+              />
+
+              {/* <BlogInput 
+                type="file"
+                id="file-input"
+                accept="image/*"
+              
+              /> */}
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.category}
                 type="text"
-                name="blog_category"
+                name="category"
                 placeholder="Enter category"
                 required
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.reading_time}
                 type="number"
-                name="blog_reading time"
+                name="reading_time"
                 placeholder="Enter reading time"
                 required
               />
 
               <BlogTextarea
+                onChange={this.onChange}
+                value={this.state.summary}
                 type="textarea"
-                name="blog_snippet"
+                name="summary"
                 placeholder="Summary"
                 rows="3"
                 cols="25"
@@ -160,8 +220,10 @@ export class NewPostPage extends Component {
               />
 
               <BlogTextarea
+                onChange={this.onChange}
+                value={this.state.content}
                 type="textarea"
-                name="blog_content"
+                name="content"
                 placeholder="Content"
                 rows="20"
                 cols="25"
@@ -170,7 +232,7 @@ export class NewPostPage extends Component {
             </BlogForm>
           </Content>
 
-          <Button href="">Submit</Button>
+          <Button onClick={this.createBlog}>Submit Post</Button>
         </MainContainer>
       </AmplifyAuthenticator>
     );

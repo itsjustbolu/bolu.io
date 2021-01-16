@@ -102,7 +102,7 @@ export class BlogPage extends Component {
                 <CardDate>{post.createdAt}</CardDate>
                 <CardBlurb>{post.summary}</CardBlurb>
               </CardText>
-              <CardPic>photo</CardPic>
+              {/* <CardPic>photo</CardPic> */}
             </BlogCards>
           </CardContainer>
         ))}
