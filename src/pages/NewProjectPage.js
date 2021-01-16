@@ -6,8 +6,14 @@ import Amplify from "aws-amplify";
 import config from "../aws-exports";
 import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
+// Add GraphQL components
+import { API, graphqlOperation } from "aws-amplify";
+import { createProject } from "../graphql/mutations";
+
 // Configure Amplify
 Amplify.configure(config);
+
+// Style Components
 
 const MainContainer = styled.div`
   display: flex;
@@ -84,6 +90,60 @@ const Button = styled.a`
 `;
 
 export class NewProjectPage extends Component {
+  state = {
+    title: "",
+    category: "",
+    summary: "",
+    demo_link: "",
+    github_link: "",
+    blog_post_link: "",
+    aws_link: "",
+    projects: [],
+  };
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  createProject = async () => {
+    const {
+      title,
+      category,
+      summary,
+      demo_link,
+      github_link,
+      blog_post_link,
+      aws_link,
+    } = this.state;
+    if (title === "") return;
+    try {
+      const project = {
+        title,
+        category,
+        summary,
+        demo_link,
+        github_link,
+        blog_post_link,
+        aws_link,
+      };
+      const projects = [...this.state.projects, project];
+      this.setState({
+        projects,
+        title: "",
+        category: "",
+        summary: "",
+        demo_link: "",
+        github_link: "",
+        blog_post_link: "",
+        aws_link: "",
+      });
+      await API.graphql(graphqlOperation(createProject, { input: project }));
+      console.log("project created successfully");
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
   render() {
     return (
       <AmplifyAuthenticator>
@@ -94,23 +154,29 @@ export class NewProjectPage extends Component {
           <Content>
             <BlogForm>
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.title}
                 type="text"
-                name="project_title"
+                name="title"
                 placeholder="Enter title for project"
                 required
                 autofocus
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.category}
                 type="text"
-                name="project_category"
+                name="category"
                 placeholder="Enter category"
                 required
               />
 
               <BlogTextarea
+                onChange={this.onChange}
+                value={this.state.summary}
                 type="textarea"
-                name="blog_snippet"
+                name="summary"
                 placeholder="Summary"
                 rows="3"
                 cols="25"
@@ -118,35 +184,43 @@ export class NewProjectPage extends Component {
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.demo_link}
                 type="url"
-                name="project_demo_link"
+                name="demo_link"
                 placeholder="Enter link for working demo"
                 required
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.github_link}
                 type="url"
-                name="project_github_link"
+                name="github_link"
                 placeholder="Enter github repo link"
                 required
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.blog_post_link}
                 type="url"
-                name="project_blog_post_link"
+                name="blog_post_link"
                 placeholder="Enter blog post link"
                 required
               />
 
               <BlogInput
+                onChange={this.onChange}
+                value={this.state.aws_link}
                 type="url"
-                name="project_aws_link"
+                name="aws_link"
                 placeholder="Enter aws link"
               />
             </BlogForm>
           </Content>
 
-          <Button href="">Submit</Button>
+          <Button onClick={this.createProject}>Add Project</Button>
         </MainContainer>
       </AmplifyAuthenticator>
     );

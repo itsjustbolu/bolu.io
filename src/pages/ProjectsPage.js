@@ -81,6 +81,11 @@ const CardBlurb = styled.div`
   font-size: 0.7em;
 `;
 
+const CardCategory = styled.div`
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7em;
+`;
+
 export class ProjectsPage extends Component {
   state = { projects: [] };
   async componentDidMount() {
@@ -102,15 +107,21 @@ export class ProjectsPage extends Component {
         {this.state.projects.map((proj, i) => (
           <ProjectsCards>
             <CardTitle>{proj.title}</CardTitle>
-            <CardBlurb>
-              {proj.summary}
-              {proj.category}
-            </CardBlurb>
+            <CardBlurb>{proj.summary}</CardBlurb>
+            <CardCategory>{proj.category}</CardCategory>
             <CardLinks>
-              <Link href={proj.demo_link}>Demo</Link>
-              <Link href={proj.github_link}>Github</Link>
-              <Link href={proj.blog_post_link}>Blog</Link>
-              <Link href={proj.aws_link}>AWS</Link>
+              <Link href={proj.demo_link} target="_blank">
+                Demo
+              </Link>
+              <Link href={proj.github_link} target="_blank">
+                Github
+              </Link>
+              <Link href={proj.blog_post_link} target="_blank">
+                Blog
+              </Link>
+              <Link href={proj.aws_link} target="_blank">
+                AWS
+              </Link>
             </CardLinks>
           </ProjectsCards>
         ))}

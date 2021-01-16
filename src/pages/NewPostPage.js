@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
-
 // Adding AWS Amplify Authentication
 import Amplify from "aws-amplify";
 import config from "../aws-exports";
