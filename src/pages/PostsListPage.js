@@ -17,7 +17,6 @@ const MainContainer = styled.div`
   height: 100%;
   background-color: white;
   margin: 0 2em;
-  width: 80%;
 `;
 
 const PageTitle = styled.div`

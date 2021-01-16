@@ -71,16 +71,12 @@ export class AboutPage extends Component {
           <p>
             I write a{" "}
             <strong>
-              <a href="/blog" style={{ color: "orange" }}>
-                blog
-              </a>
+              <a href="/blog">blog</a>
             </strong>{" "}
             sharing some of my learnings and tips as an Engineer, and tend to
             build pet{" "}
             <strong>
-              <a href="/projects" style={{ color: "orange" }}>
-                projects
-              </a>
+              <a href="/projects">projects</a>
             </strong>{" "}
             in my spare time to keep my programming and software engineering
             skills sharp.
@@ -96,9 +92,7 @@ export class AboutPage extends Component {
             If you've got any questions about my journey or simply want to say
             hi, feel free to{" "}
             <strong>
-              <a href="/contact" style={{ color: "orange" }}>
-                send me a message
-              </a>
+              <a href="/contact">send me a message</a>
             </strong>
             .
           </p>
