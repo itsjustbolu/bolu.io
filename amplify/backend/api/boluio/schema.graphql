@@ -2,6 +2,7 @@ type Blog @model {
   id: ID!
   title: String!
   slug: String!
+  date: String!
   category: String!
   reading_time: Int!
   summary: String!
