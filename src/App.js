@@ -17,6 +17,7 @@ import AdminPage from "./pages/AdminPage";
 import PostsListPage from "./pages/PostsListPage";
 import ProjectsListPage from "./pages/ProjectsListPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (

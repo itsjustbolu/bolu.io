@@ -9,17 +9,14 @@ import Footer from "../components/Footer";
 
 Amplify.configure(config);
 
-const MainContainer = styled.div`
-  // display: flex;
-  // flex-flow: row wrap;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-`;
-
-const TitleSection = styled.div`
+const MainContainer = styled.header`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
 `;
 
 const PageTitle = styled.div`
@@ -38,37 +35,23 @@ const PageBlurb = styled.div`
   font-weight: 600;
 `;
 
-const Container = styled.div`
+const ContentContainer = styled.section`
   display: flex;
-  flex-direction: row;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
 `;
 
-const CardText = styled.div`
+const CardSection = styled.section`
+  display: inline-flex;
+  justify-content: center;
+  // padding: 0 2em;
+  margin: 0.5em;
+`;
+
+const Container = styled.ul`
+  width: 350px;
+  border: 2px solid black;
   padding: 1em;
-  width: 20em;
-  border: 1px solid black;
-  border-radius: 5px;
-  height: 8em;
-  margin: 1em;
-`;
-
-const CardTitle = styled.div`
-  font-size: 1em;
-  font-weight: bold;
-  font-family: "Noto Sans JP", sans-serif;
-`;
-
-const CardDate = styled.div`
-  font-size: 0.5em;
-  font-family: "Open Sans", sans-serif;
-  color: blue;
-  font-weight: bold;
-  margin: 0.5em 0;
-`;
-
-const CardBlurb = styled.div`
-  font-family: "Open Sans", sans-serif;
-  font-size: 0.7em;
 `;
 
 export class BlogPage extends Component {
@@ -87,21 +70,70 @@ export class BlogPage extends Component {
     return (
       <div>
         <MainContainer>
-          <TitleSection>
-            <PageTitle>Blog</PageTitle>
-            <PageBlurb>Just sharing some knowledge 📝</PageBlurb>
-          </TitleSection>
-          {this.state.blogs.reverse().map((post, i) => (
-            <Container>
-              <CardText>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDate>{post.createdAt}</CardDate>
-                <CardBlurb>{post.summary}</CardBlurb>
-              </CardText>
-            </Container>
-          ))}
+          <PageTitle>Blog</PageTitle>
+          <PageBlurb>Just sharing some things I know 📝</PageBlurb>
         </MainContainer>
-        <Footer />
+        <ContentContainer>
+          {this.state.blogs.reverse().map((post, i) => (
+            <CardSection>
+              <Container
+                style={{
+                  backgroundColor: "#f8f9fa",
+                  // backgroundImage:
+                  //   "linear-gradient(180deg, #FFE53B 0%, #FF2525 74%)",
+                }}
+              >
+                <li style={{ listStyleType: "none" }}>
+                  <p
+                    style={{
+                      fontSize: "1em",
+                      fontWeight: "bold",
+                      marginBottom: "0.2em",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {post.title}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "0.7em",
+                      fontStyle: "italic",
+                      marginBottom: "1em",
+                    }}
+                  >
+                    {post.summary}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "0.7em",
+                      fontWeight: "bold",
+                      color: "#017cfe",
+                      margin: "0",
+                    }}
+                  >
+                    {post.createdAt}
+                  </p>
+
+                  <p
+                    style={{
+                      backgroundColor: "orange",
+                      color: "black",
+                      border: "1px solid black",
+                      padding: "0.2em",
+                      fontSize: "0.7em",
+                      fontWeight: "bold",
+                      margin: "0.5em 0",
+                      width: "max-content",
+                    }}
+                  >
+                    #{post.category}
+                  </p>
+                </li>
+              </Container>
+            </CardSection>
+          ))}
+        </ContentContainer>
+        {/* <Footer /> */}
       </div>
     );
   }
