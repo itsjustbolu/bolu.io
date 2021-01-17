@@ -10,15 +10,16 @@ import Footer from "../components/Footer";
 Amplify.configure(config);
 
 const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // flex-flow: row wrap;
+  width: 100vw;
   height: 100vh;
   background-color: white;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-bottom: 5em;
+`;
+
+const TitleSection = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 const PageTitle = styled.div`
@@ -37,18 +38,18 @@ const PageBlurb = styled.div`
   font-weight: 600;
 `;
 
-const CardContainer = styled.div`
-  float: left;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
-const BlogCards = styled.div`
+const CardText = styled.div`
   padding: 1em;
-  min-width: 20em;
+  width: 20em;
   border: 1px solid black;
   border-radius: 5px;
-`;
-const CardText = styled.div`
-  width: 100%;
+  height: 8em;
+  margin: 1em;
 `;
 
 const CardTitle = styled.div`
@@ -70,11 +71,6 @@ const CardBlurb = styled.div`
   font-size: 0.7em;
 `;
 
-// const CardPic = styled.div`
-//   margin: 3em;
-//   width: 30%;
-// `;
-
 export class BlogPage extends Component {
   state = { blogs: [] };
   async componentDidMount() {
@@ -90,24 +86,22 @@ export class BlogPage extends Component {
   render() {
     return (
       <div>
-      <MainContainer>
-        <PageTitle>Blog</PageTitle>
-        <PageBlurb>Just sharing some knowledge 📝</PageBlurb>
-
-        {this.state.blogs.map((post, i) => (
-          <CardContainer>
-            <BlogCards>
+        <MainContainer>
+          <TitleSection>
+            <PageTitle>Blog</PageTitle>
+            <PageBlurb>Just sharing some knowledge 📝</PageBlurb>
+          </TitleSection>
+          {this.state.blogs.reverse().map((post, i) => (
+            <Container>
               <CardText>
                 <CardTitle>{post.title}</CardTitle>
                 <CardDate>{post.createdAt}</CardDate>
                 <CardBlurb>{post.summary}</CardBlurb>
               </CardText>
-              {/* <CardPic>photo</CardPic> */}
-            </BlogCards>
-          </CardContainer>
-        ))}
-      </MainContainer>
-      <Footer/>
+            </Container>
+          ))}
+        </MainContainer>
+        <Footer />
       </div>
     );
   }
