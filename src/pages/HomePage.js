@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import MainPicture from "../assets/home_avatar.jpeg";
 import Footer from "../components/Footer";
 
 const MainContainer = styled.div`
@@ -71,7 +70,10 @@ export class HomePage extends Component {
     return (
       <div>
         <MainContainer>
-          <Picture src={MainPicture} alt="bolu owolana picture" />
+          <Picture
+            src="https://boluio-blogposts-projects-images.s3.us-east-2.amazonaws.com/boluio_avatar.jpeg"
+            alt="bolu avatar"
+          />
           <Hello>Hi, I'm Bolu 👋🏿</Hello>
           <Engineer>Cloud / DevOps Engineer </Engineer>
 
