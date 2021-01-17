@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import MainPicture from "../assets/jeff bezos.jpg";
+import MainPicture from "../assets/home_avatar.jpeg";
 import Footer from "../components/Footer";
 
 const MainContainer = styled.div`
@@ -9,15 +9,15 @@ const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  min-height: 100%;
+  // min-height: 100%;
   background-color: white;
   margin: auto;
 `;
 
 const Picture = styled.img`
-  height: 100px;
-  width: 100px;
-  border-radius: 3em;
+  height: 150px;
+  width: 150px;
+  border-radius: 5em;
   margin-top: 1em;
 `;
 
@@ -26,14 +26,6 @@ const Hello = styled.div`
   font-family: "Noto Sans JP", sans-serif;
   margin: 0.5em;
 `;
-
-// const Building = styled.div`
-//   font-size: 2.5em;
-//   // font-family: "Open Sans", sans-serif;
-//   font-family: "Noto Sans JP", sans-serif;
-//   min-width: 60%;
-//   text-align: center;
-// `;
 
 const Engineer = styled.div`
   font-size: 2.5em;
@@ -84,9 +76,9 @@ export class HomePage extends Component {
           <Engineer>Cloud / DevOps Engineer </Engineer>
 
           <Specialty>
-            I specialize building, deploying, and maintaining readily-available
-            and fault-tolerant cloud infrastructure using automation (IaC)
-            combined with CI/CD.
+            I specialize in building, deploying, and maintaining
+            readily-available and fault-tolerant cloud infrastructure using
+            automation (IaC) combined with CI/CD.
           </Specialty>
 
           <ButtonContainer>

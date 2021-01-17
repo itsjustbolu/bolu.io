@@ -1,0 +1,12 @@
+#nav_link {
+  text-transform: uppercase;
+  margin: 0 0.7em;
+  font-weight: bold;
+  font-family: "Noto Sans JP", sans-serif;
+  color: black;
+}
+
+#nav_link:hover {
+  color: black;
+  background-color: orange;
+}

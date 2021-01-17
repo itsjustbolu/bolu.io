@@ -9,14 +9,14 @@ import Footer from "../components/Footer";
 
 Amplify.configure(config);
 
-const MainContainer = styled.div`
+const MainContainer = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: white;
-  margin: 0 2em;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
 `;
 
 const PageTitle = styled.div`
@@ -35,20 +35,23 @@ const PageBlurb = styled.div`
   font-weight: 600;
 `;
 
-const ProjectCardContainer = styled.div`
+const ContentContainer = styled.section`
   display: flex;
+  justify-content: space-evenly;
   flex-flow: row wrap;
-
 `;
 
-const ProjectsCards = styled.div`
-  display: flex;
-  flex-direction: column;
+const CardSection = styled.section`
+  display: inline-flex;
+  justify-content: center;
+  // padding: 0 2em;
+  margin: 0.5em;
+`;
+
+const Container = styled.div`
+  width: 350px;
+  border: 2px solid black;
   padding: 1em;
-  width: 200px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin-bottom: 2em;
 `;
 
 const CardTitle = styled.div`
@@ -63,6 +66,7 @@ const CardLinks = styled.div`
   color: blue;
   font-weight: bold;
   display: flex;
+  margin-top: 1em;
 `;
 
 const Link = styled.a`
@@ -106,36 +110,37 @@ export class ProjectsPage extends Component {
 
   render() {
     return (
-      <div>
-      <MainContainer>
-        <PageTitle>Projects</PageTitle>
-        <PageBlurb>Fun stuff I've worked on 🚧</PageBlurb>
-
-        {this.state.projects.map((proj, i) => (
-          <ProjectCardContainer>
-            <ProjectsCards>
-              <CardTitle>{proj.title}</CardTitle>
-              <CardBlurb>{proj.summary}</CardBlurb>
-              <CardCategory>{proj.category}</CardCategory>
-              <CardLinks>
-                <Link href={proj.demo_link} target="_blank">
-                  Demo
-                </Link>
-                <Link href={proj.github_link} target="_blank">
-                  Github
-                </Link>
-                <Link href={proj.blog_post_link} target="_blank">
-                  Blog
-                </Link>
-                <Link href={proj.aws_link} target="_blank">
-                  AWS
-                </Link>
-              </CardLinks>
-            </ProjectsCards>
-          </ProjectCardContainer>
-        ))}
-      </MainContainer>
-      <Footer />
+      <div style={{ marginBottom: "5em", height: "100%" }}>
+        <MainContainer>
+          <PageTitle>Projects</PageTitle>
+          <PageBlurb>Fun stuff I've worked on 🚧</PageBlurb>
+        </MainContainer>
+        <ContentContainer>
+          {this.state.projects.map((proj, i) => (
+            <CardSection>
+              <Container>
+                <CardTitle>{proj.title}</CardTitle>
+                <CardBlurb>{proj.summary}</CardBlurb>
+                <CardCategory>{proj.category}</CardCategory>
+                <CardLinks>
+                  <Link href={proj.demo_link} target="_blank">
+                    Demo
+                  </Link>
+                  <Link href={proj.github_link} target="_blank">
+                    Github
+                  </Link>
+                  <Link href={proj.blog_post_link} target="_blank">
+                    Blog
+                  </Link>
+                  <Link href={proj.aws_link} target="_blank">
+                    AWS
+                  </Link>
+                </CardLinks>
+              </Container>
+            </CardSection>
+          ))}
+        </ContentContainer>
+        
       </div>
     );
   }

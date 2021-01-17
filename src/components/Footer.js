@@ -20,7 +20,7 @@ const Left = styled.div`
   font-size: 2.5em;
 `;
 
-const FontAwesome = styled.div`
+const FontAwesome = styled.a`
   color: white;
   padding: 0.5em;
 
@@ -41,16 +41,16 @@ function Footer() {
   return (
     <FooterContainer className="footer">
       <Left>
-        <FontAwesome>
+        <FontAwesome href="https://instagram.com/itsjustbolu" target="_blank">
           <i class="fab fa-instagram"></i>
         </FontAwesome>
-        <FontAwesome>
+        <FontAwesome href="https://linkedin.com" target="_blank">
           <i class="fab fa-linkedin-in"></i>
         </FontAwesome>
-        <FontAwesome>
+        <FontAwesome href="https://github.com/itsjustbolu" target="_blank">
           <i class="fab fa-github"></i>
         </FontAwesome>
-        <FontAwesome>
+        <FontAwesome href="https://dev.to/itsjustbolu" target="_blank">
           <i class="fab fa-dev"></i>
         </FontAwesome>
       </Left>
