@@ -12,7 +12,6 @@ const FooterContainer = styled.div`
   background-color: black;
   color: white;
   padding: 1.5em;
-  height: 100%;
 `;
 
 const Left = styled.div`
@@ -40,7 +39,7 @@ const Right = styled.div`
 
 function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer className="footer">
       <Left>
         <FontAwesome>
           <i class="fab fa-instagram"></i>

@@ -8,7 +8,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // height: 75vh;
+  height: 100vh;
   min-height: 100%;
   background-color: white;
   margin: auto;
@@ -94,16 +94,7 @@ export class HomePage extends Component {
             <Button href="/projects">Projects</Button>
           </ButtonContainer>
         </MainContainer>
-        <Footer
-          style={{
-            position: "absolute",
-            bottom: "0",
-            left: "0",
-            right: "0",
-            width: "100%",
-            height: "100px",
-          }}
-        />
+        <Footer />
       </div>
     );
   }

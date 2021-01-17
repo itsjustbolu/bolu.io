@@ -5,6 +5,7 @@ import config from "../aws-exports";
 
 import { API, graphqlOperation } from "aws-amplify";
 import { listBlogs } from "../graphql/queries";
+import Footer from "../components/Footer";
 
 Amplify.configure(config);
 
@@ -13,9 +14,11 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   background-color: white;
-  margin: 0 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 5em;
 `;
 
 const PageTitle = styled.div`
@@ -35,21 +38,17 @@ const PageBlurb = styled.div`
 `;
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  float: left;
 `;
 
 const BlogCards = styled.div`
-  display: flex;
   padding: 1em;
   min-width: 20em;
   border: 1px solid black;
   border-radius: 5px;
-  margin: 2em 0;
 `;
 const CardText = styled.div`
-  // display: grid;
-  width: 70%;
+  width: 100%;
 `;
 
 const CardTitle = styled.div`
@@ -90,6 +89,7 @@ export class BlogPage extends Component {
 
   render() {
     return (
+      <div>
       <MainContainer>
         <PageTitle>Blog</PageTitle>
         <PageBlurb>Just sharing some knowledge 📝</PageBlurb>
@@ -107,6 +107,8 @@ export class BlogPage extends Component {
           </CardContainer>
         ))}
       </MainContainer>
+      <Footer/>
+      </div>
     );
   }
 }

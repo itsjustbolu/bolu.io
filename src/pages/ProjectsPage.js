@@ -5,6 +5,7 @@ import config from "../aws-exports";
 
 import { API, graphqlOperation } from "aws-amplify";
 import { listProjects } from "../graphql/queries";
+import Footer from "../components/Footer";
 
 Amplify.configure(config);
 
@@ -13,7 +14,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   background-color: white;
   margin: 0 2em;
 `;
@@ -34,14 +35,20 @@ const PageBlurb = styled.div`
   font-weight: 600;
 `;
 
+const ProjectCardContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+
+`;
+
 const ProjectsCards = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em;
-  max-width: 20em;
+  width: 200px;
   border: 1px solid black;
   border-radius: 5px;
-  margin: 2em 0;
+  margin-bottom: 2em;
 `;
 
 const CardTitle = styled.div`
@@ -55,7 +62,6 @@ const CardLinks = styled.div`
   font-family: "Open Sans", sans-serif;
   color: blue;
   font-weight: bold;
-  margin: 0.5em 0;
   display: flex;
 `;
 
@@ -100,32 +106,37 @@ export class ProjectsPage extends Component {
 
   render() {
     return (
+      <div>
       <MainContainer>
         <PageTitle>Projects</PageTitle>
         <PageBlurb>Fun stuff I've worked on 🚧</PageBlurb>
 
         {this.state.projects.map((proj, i) => (
-          <ProjectsCards>
-            <CardTitle>{proj.title}</CardTitle>
-            <CardBlurb>{proj.summary}</CardBlurb>
-            <CardCategory>{proj.category}</CardCategory>
-            <CardLinks>
-              <Link href={proj.demo_link} target="_blank">
-                Demo
-              </Link>
-              <Link href={proj.github_link} target="_blank">
-                Github
-              </Link>
-              <Link href={proj.blog_post_link} target="_blank">
-                Blog
-              </Link>
-              <Link href={proj.aws_link} target="_blank">
-                AWS
-              </Link>
-            </CardLinks>
-          </ProjectsCards>
+          <ProjectCardContainer>
+            <ProjectsCards>
+              <CardTitle>{proj.title}</CardTitle>
+              <CardBlurb>{proj.summary}</CardBlurb>
+              <CardCategory>{proj.category}</CardCategory>
+              <CardLinks>
+                <Link href={proj.demo_link} target="_blank">
+                  Demo
+                </Link>
+                <Link href={proj.github_link} target="_blank">
+                  Github
+                </Link>
+                <Link href={proj.blog_post_link} target="_blank">
+                  Blog
+                </Link>
+                <Link href={proj.aws_link} target="_blank">
+                  AWS
+                </Link>
+              </CardLinks>
+            </ProjectsCards>
+          </ProjectCardContainer>
         ))}
       </MainContainer>
+      <Footer />
+      </div>
     );
   }
 }

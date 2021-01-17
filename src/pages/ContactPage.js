@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Footer from "../components/Footer";
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   background-color: white;
   margin: 0 2em;
   min-width: 80%;
@@ -77,39 +78,42 @@ const Button = styled.a`
 export class ContactPage extends Component {
   render() {
     return (
-      <MainContainer>
-        <PageTitle>Contact</PageTitle>
-        <PageBlurb>Fill out the form below 📬</PageBlurb>
+      <div>
+        <MainContainer>
+          <PageTitle>Contact</PageTitle>
+          <PageBlurb>Fill out the form below 📬</PageBlurb>
 
-        <Content>
-          <ContactForm>
-            <ContactInput
-              type="text"
-              name="sender_name"
-              placeholder="Name"
-              required
-              autofocus
-            />
+          <Content>
+            <ContactForm>
+              <ContactInput
+                type="text"
+                name="sender_name"
+                placeholder="Name"
+                required
+                autofocus
+              />
 
-            <ContactInput
-              type="email"
-              name="sender_email"
-              placeholder="Email"
-              required
-            />
+              <ContactInput
+                type="email"
+                name="sender_email"
+                placeholder="Email"
+                required
+              />
 
-            <ContactTextarea
-              type="textarea"
-              name="sender_message"
-              placeholder="Message"
-              rows="7"
-              cols="25"
-              required
-            />
-          </ContactForm>
-        </Content>
-        <Button href="">Send</Button>
-      </MainContainer>
+              <ContactTextarea
+                type="textarea"
+                name="sender_message"
+                placeholder="Message"
+                rows="7"
+                cols="25"
+                required
+              />
+            </ContactForm>
+          </Content>
+          <Button href="">Send</Button>
+        </MainContainer>
+        <Footer />
+      </div>
     );
   }
 }
