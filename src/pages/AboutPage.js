@@ -67,7 +67,6 @@ export class AboutPage extends Component {
             resources to ensure maximum uptime, fault tolerance and high
             availability.
           </p>
-
           <p>
             I have learned a lot as a Cloud Engineer, and I continuously develop
             and challenge myself to constantly absorb relevant emerging
@@ -75,7 +74,6 @@ export class AboutPage extends Component {
             and Bash, as well as tools Cloudformation and Terraform enables
             automation.
           </p>
-
           <p>
             I write a{" "}
             <strong>
@@ -89,13 +87,11 @@ export class AboutPage extends Component {
             in my spare time to keep my programming and software engineering
             skills sharp.
           </p>
-
           <p>
             I am <strong>3x AWS Certified</strong>, and my specialties include
             AWS, Automation via IaC, CI/CD, Cloud Computing, Container Services,
             DevOps, Git, Python and Serverless Architecture.{" "}
           </p>
-
           <p>
             If you've got any questions about my journey or simply want to say
             hi, feel free to{" "}
@@ -103,38 +99,39 @@ export class AboutPage extends Component {
               <a href="/contact">send me a message</a>
             </strong>
             .
-          </p>        <Certifications>
-          <img
-            src={AWSArchitect}
-            alt="aws certified solutions architect associate"
-            height="100px"
-            width="100px"
-          />
-          <img
-            src={AWSDeveloper}
-            alt="aws certified developer associate"
-            height="100px"
-            width="100px"
-          />
-          <img
-            src={AWSSysOps}
-            alt="aws certified sysops administrator associate"
-            height="100px"
-            width="100px"
-          />
-          <img
-            src={AzureFundamentals}
-            alt="microsoft azure fundamentals"
-            height="100px"
-            width="100px"
-          />
-          <img
+          </p>{" "}
+          <Certifications>
+            <img
+              src={AWSArchitect}
+              alt="aws certified solutions architect associate"
+              height="100px"
+              width="100px"
+            />
+            <img
+              src={AWSDeveloper}
+              alt="aws certified developer associate"
+              height="100px"
+              width="100px"
+            />
+            <img
+              src={AWSSysOps}
+              alt="aws certified sysops administrator associate"
+              height="100px"
+              width="100px"
+            />
+            <img
+              src={AzureFundamentals}
+              alt="microsoft azure fundamentals"
+              height="100px"
+              width="100px"
+            />
+            {/* <img
             src={GCEAssociate}
             alt="google cloud engineer associate"
             height="100px"
             width="100px"
-          />
-        </Certifications>
+          /> */}
+          </Certifications>
         </Content>
 
         {/* <Footer /> */}

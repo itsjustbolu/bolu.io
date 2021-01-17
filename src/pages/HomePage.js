@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   height: 100vh;
   // min-height: 100%;
   background-color: white;
-  margin: auto;
+  margin-top: 10vh;
 `;
 
 const Picture = styled.img`
@@ -75,12 +75,12 @@ export class HomePage extends Component {
             alt="bolu avatar"
           />
           <Hello>Hi, I'm Bolu 👋🏿</Hello>
-          <Engineer>Cloud / DevOps Engineer </Engineer>
+          <Engineer>Cloud & DevOps Engineer. </Engineer>
 
           <Specialty>
-            I specialize in building, deploying, and maintaining
-            readily-available and fault-tolerant cloud infrastructure using
-            automation (IaC) combined with CI/CD.
+            I build, deploy and maintain readily-available, fault-tolerant
+            infrastructure and software in the cloud using automation (IaC)
+            combined with CI/CD.
           </Specialty>
 
           <ButtonContainer>

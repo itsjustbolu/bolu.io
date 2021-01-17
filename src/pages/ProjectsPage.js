@@ -88,12 +88,14 @@ const Link = styled.a`
 
 const CardBlurb = styled.div`
   font-family: "Open Sans", sans-serif;
-  font-size: 0.7em;
+  font-size: 0.8em;
+  margin: 0.5em 0;
 `;
 
 const CardCategory = styled.div`
   font-family: "Open Sans", sans-serif;
   font-size: 0.7em;
+  font-style: italic;
 `;
 
 export class ProjectsPage extends Component {
@@ -121,7 +123,7 @@ export class ProjectsPage extends Component {
               <Container>
                 <CardTitle>{proj.title}</CardTitle>
                 <CardBlurb>{proj.summary}</CardBlurb>
-                <CardCategory>{proj.category}</CardCategory>
+                <CardCategory>Technologies: {proj.category}</CardCategory>
                 <CardLinks>
                   <Link href={proj.demo_link} target="_blank">
                     Demo
@@ -140,7 +142,6 @@ export class ProjectsPage extends Component {
             </CardSection>
           ))}
         </ContentContainer>
-        
       </div>
     );
   }

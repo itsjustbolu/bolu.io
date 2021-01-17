@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Footer from "../components/Footer";
 
+
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -75,6 +76,8 @@ const Button = styled.a`
   }
 `;
 
+
+
 export class ContactPage extends Component {
   render() {
     return (
@@ -82,7 +85,6 @@ export class ContactPage extends Component {
         <MainContainer>
           <PageTitle>Contact</PageTitle>
           <PageBlurb>Fill out the form below 📬</PageBlurb>
-
           <Content>
             <ContactForm>
               <ContactInput
